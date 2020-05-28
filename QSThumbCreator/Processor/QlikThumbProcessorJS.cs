@@ -7,6 +7,9 @@
          * The below JS is injected into the browser and is used to make sure the necessary
          * events have happened.
          *
+         * Note: we may actually need to wait for the pong to appear. Sometimes it doesn't
+         * load fast enough
+         *         
          * 1. Make sure that the pong waiting screen is no longer visible
          * 2. Wait at least 1 AFTER the receiving of the last paint/navigation/resource call is
          *    made in the browser.

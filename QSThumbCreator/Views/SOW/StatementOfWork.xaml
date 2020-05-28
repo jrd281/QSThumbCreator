@@ -1,0 +1,59 @@
+﻿<UserControl x:Class="QSThumbCreator.Views.SOW.StatementOfWork"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:local="clr-namespace:QSThumbCreator.Views.SOW"
+             d:DataContext="{d:DesignInstance local:StatementOfWorkViewModel}"
+             mc:Ignorable="d" Loaded="StatementOfWork_OnLoaded"
+             d:DesignHeight="450" d:DesignWidth="800">
+    <UserControl.Resources>
+        <BooleanToVisibilityConverter x:Key="VisibleIfTrueConverter" />
+    </UserControl.Resources>
+    <Grid Margin="5">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*" />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+        <ScrollViewer Grid.Column="0" Grid.Row="0" VerticalScrollBarVisibility="Visible"
+                      HorizontalScrollBarVisibility="Disabled" HorizontalAlignment="Left"
+                      Width="{Binding Path=ActualWidth, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=Grid}}">
+            <StackPanel Orientation="Vertical">
+                <TextBlock FontSize="16"
+                           Visibility="{Binding Path=ContentLibraryVisible, Converter={StaticResource VisibleIfTrueConverter}}">
+                    - Going to upload into the <Run FontWeight="Bold" Text="{Binding ContentLibraryString}" /> content library
+                </TextBlock>
+                <TextBlock FontSize="16">
+                    - The following apps will have thumbnails created:
+                </TextBlock>
+                <TextBlock Margin="15 0 0 0" FontSize="16"
+                           LineHeight="10"
+                           LineStackingStrategy="BlockLineHeight">
+                    <LineBreak />
+                    <Run FontWeight="Bold" Text="{Binding AppsListString}" />
+                </TextBlock>
+            </StackPanel>
+        </ScrollViewer>
+        <Grid Grid.Row="1" Grid.Column="0">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto" />
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="Auto" />
+            </Grid.ColumnDefinitions>
+
+            <Button Grid.Row="0" Grid.Column="0" Margin="5" Click="HandlePrevClick">
+                Previous
+            </Button>
+
+            <Button Grid.Row="0" Grid.Column="2" Margin="5" Click="HandleGoClick">
+                Go!
+            </Button>
+        </Grid>
+    </Grid>
+</UserControl>

@@ -1,0 +1,777 @@
+﻿<av:ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                       xmlns:s="clr-namespace:System;assembly=mscorlib"
+                       xmlns:ui="http://schemas.modernwpf.com/2019"
+                       xmlns:av="http://schemas.microsoft.com/winfx/2006/xaml/presentation">
+    <Style TargetType="CheckBox" x:Key="ContentFreeCheckbox">
+        <Style.BasedOn>
+            <Style TargetType="CheckBox">
+                <Style.Resources>
+                    <ResourceDictionary />
+                </Style.Resources>
+                <Setter Property="OverridesDefaultStyle">
+                    <Setter.Value>
+                        <s:Boolean>True</s:Boolean>
+                    </Setter.Value>
+                </Setter>
+                <Setter Property="Panel.Background">
+                    <Setter.Value>
+                        <DynamicResource ResourceKey="CheckBoxBackgroundUnchecked" />
+                    </Setter.Value>
+                </Setter>
+                <Setter Property="TextElement.Foreground">
+                    <Setter.Value>
+                        <DynamicResource ResourceKey="CheckBoxForegroundUnchecked" />
+                    </Setter.Value>
+                </Setter>
+                <Setter Property="Border.BorderBrush">
+                    <Setter.Value>
+                        <DynamicResource ResourceKey="CheckBoxBorderBrushUnchecked" />
+                    </Setter.Value>
+                </Setter>
+                <Setter Property="Padding">
+                    <Setter.Value>
+                        <Thickness>8,0,0,0</Thickness>
+                    </Setter.Value>
+                </Setter>
+                <Setter Property="HorizontalAlignment">
+                    <Setter.Value>
+                        <x:Static Member="HorizontalAlignment.Left" />
+                    </Setter.Value>
+                </Setter>
+                <Setter Property="VerticalAlignment">
+                    <Setter.Value>
+                        <x:Static Member="VerticalAlignment.Center" />
+                    </Setter.Value>
+                </Setter>
+                <Setter Property="HorizontalContentAlignment">
+                    <Setter.Value>
+                        <x:Static Member="HorizontalAlignment.Left" />
+                    </Setter.Value>
+                </Setter>
+                <Setter Property="VerticalContentAlignment">
+                    <Setter.Value>
+                        <x:Static Member="VerticalAlignment.Top" />
+                    </Setter.Value>
+                </Setter>
+                <Setter Property="TextElement.FontFamily">
+                    <Setter.Value>
+                        <DynamicResource ResourceKey="ContentControlThemeFontFamily" />
+                    </Setter.Value>
+                </Setter>
+                <Setter Property="TextElement.FontSize">
+                    <Setter.Value>
+                        <DynamicResource ResourceKey="ControlContentThemeFontSize" />
+                    </Setter.Value>
+                </Setter>
+                <Setter Property="MinWidth">
+                    <Setter.Value>
+                        <s:Double>40</s:Double>
+                    </Setter.Value>
+                </Setter>
+                <Setter Property="MinHeight">
+                    <Setter.Value>
+                        <s:Double>32</s:Double>
+                    </Setter.Value>
+                </Setter>
+                <Setter Property="ui:ControlHelper.CornerRadius">
+                    <Setter.Value>
+                        <DynamicResource ResourceKey="ControlCornerRadius" />
+                    </Setter.Value>
+                </Setter>
+                <Setter Property="FocusVisualStyle">
+                    <Setter.Value>
+                        <DynamicResource ResourceKey="{x:Static SystemParameters.FocusVisualStyleKey}" />
+                    </Setter.Value>
+                </Setter>
+                <Setter Property="ui:FocusVisualHelper.FocusVisualMargin">
+                    <Setter.Value>
+                        <Thickness>-7,-3,-7,-3</Thickness>
+                    </Setter.Value>
+                </Setter>
+                <Setter Property="Stylus.IsPressAndHoldEnabled">
+                    <Setter.Value>
+                        <s:Boolean>False</s:Boolean>
+                    </Setter.Value>
+                </Setter>
+                <Setter Property="Template">
+                    <Setter.Value>
+                        <ControlTemplate TargetType="CheckBox">
+                            <Border BorderThickness="{TemplateBinding Border.BorderThickness}"
+                                    CornerRadius="{TemplateBinding ui:ControlHelper.CornerRadius}"
+                                    BorderBrush="{TemplateBinding Border.BorderBrush}"
+                                    Background="{TemplateBinding Panel.Background}" Name="RootGrid"
+                                    SnapsToDevicePixels="True">
+                                <Grid VerticalAlignment="Center" HorizontalAlignment="Center">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="20" />
+                                        <ColumnDefinition Width="1" />
+                                    </Grid.ColumnDefinitions>
+                                    <Grid>
+                                        <Rectangle Fill="{DynamicResource CheckBoxCheckBackgroundFillUnchecked}"
+                                                   Stroke="{DynamicResource CheckBoxCheckBackgroundStrokeUnchecked}"
+                                                   StrokeThickness="{DynamicResource CheckBoxBorderThemeThickness}"
+                                                   UseLayoutRounding="False" Name="NormalRectangle" Width="20"
+                                                   Height="20">
+                                            <Rectangle.RadiusX>
+                                                <TemplateBinding Property="ui:ControlHelper.CornerRadius">
+                                                    <TemplateBindingExtension.Converter>
+                                                        <ui:CornerRadiusFilterConverter Filter="TopLeftValue" Scale="1" />
+                                                    </TemplateBindingExtension.Converter>
+                                                </TemplateBinding>
+                                            </Rectangle.RadiusX>
+                                            <Rectangle.RadiusY>
+                                                <TemplateBinding Property="ui:ControlHelper.CornerRadius">
+                                                    <TemplateBindingExtension.Converter>
+                                                        <ui:CornerRadiusFilterConverter Filter="BottomRightValue"
+                                                                                        Scale="1" />
+                                                    </TemplateBindingExtension.Converter>
+                                                </TemplateBinding>
+                                            </Rectangle.RadiusY>
+                                        </Rectangle>
+                                        <ui:FontIcon FontFamily="{DynamicResource SymbolThemeFontFamily}" FontSize="16"
+                                                     Glyph=""
+                                                     Foreground="{DynamicResource CheckBoxCheckGlyphForegroundUnchecked}"
+                                                     Name="CheckGlyph" Opacity="0" />
+                                    </Grid>
+                                    <ui:ContentPresenterEx Width="0" TextWrapping="Wrap" RecognizesAccessKey="True"
+                                                           Content="{TemplateBinding ContentControl.Content}"
+                                                           ContentTemplate="{TemplateBinding ContentControl.ContentTemplate}"
+                                                           ContentStringFormat="{TemplateBinding ContentControl.ContentStringFormat}"
+                                                           Name="ContentPresenter"
+                                                           Margin="{TemplateBinding Control.Padding}"
+                                                           HorizontalAlignment="{TemplateBinding Control.HorizontalContentAlignment}"
+                                                           VerticalAlignment="{TemplateBinding Control.VerticalContentAlignment}"
+                                                           SnapsToDevicePixels="{TemplateBinding UIElement.SnapsToDevicePixels}"
+                                                           Focusable="False" Grid.Column="1" />
+                                </Grid>
+                            </Border>
+                            <ControlTemplate.Triggers>
+                                <MultiTrigger>
+                                    <MultiTrigger.Conditions>
+                                        <Condition Property="ToggleButton.IsChecked">
+                                            <Condition.Value>
+                                                <s:Boolean>False</s:Boolean>
+                                            </Condition.Value>
+                                        </Condition>
+                                        <Condition Property="UIElement.IsMouseOver">
+                                            <Condition.Value>
+                                                <s:Boolean>False</s:Boolean>
+                                            </Condition.Value>
+                                        </Condition>
+                                        <Condition Property="ButtonBase.IsPressed">
+                                            <Condition.Value>
+                                                <s:Boolean>False</s:Boolean>
+                                            </Condition.Value>
+                                        </Condition>
+                                        <Condition Property="UIElement.IsEnabled">
+                                            <Condition.Value>
+                                                <s:Boolean>True</s:Boolean>
+                                            </Condition.Value>
+                                        </Condition>
+                                    </MultiTrigger.Conditions>
+                                    <Setter Property="TextElement.Foreground" TargetName="ContentPresenter">
+                                        <Setter.Value>
+                                            <DynamicResource ResourceKey="CheckBoxForegroundUnchecked" />
+                                        </Setter.Value>
+                                    </Setter>
+                                    <Setter Property="Panel.Background" TargetName="RootGrid">
+                                        <Setter.Value>
+                                            <DynamicResource ResourceKey="CheckBoxBackgroundUnchecked" />
+                                        </Setter.Value>
+                                    </Setter>
+                                    <Setter Property="Border.BorderBrush" TargetName="RootGrid">
+                                        <Setter.Value>
+                                            <DynamicResource ResourceKey="CheckBoxBorderBrushUnchecked" />
+                                        </Setter.Value>
+                                    </Setter>
+                                    <Setter Property="Shape.Stroke" TargetName="NormalRectangle">
+                                        <Setter.Value>
+                                            <DynamicResource ResourceKey="CheckBoxCheckBackgroundStrokeUnchecked" />
+                                        </Setter.Value>
+                                    </Setter>
+                                    <Setter Property="Shape.Fill" TargetName="NormalRectangle">
+                                        <Setter.Value>
+                                            <DynamicResource ResourceKey="CheckBoxCheckBackgroundFillUnchecked" />
+                                        </Setter.Value>
+                                    </Setter>
+                                    <Setter Property="TextElement.Foreground" TargetName="CheckGlyph">
+                                        <Setter.Value>
+                                            <DynamicResource ResourceKey="CheckBoxCheckGlyphForegroundUnchecked" />
+                                        </Setter.Value>
+                                    </Setter>
+                                </MultiTrigger>
+                                <MultiTrigger>
+                                    <MultiTrigger.Conditions>
+                                        <Condition Property="ToggleButton.IsChecked">
+                                            <Condition.Value>
+                                                <s:Boolean>False</s:Boolean>
+                                            </Condition.Value>
+                                        </Condition>
+                                        <Condition Property="UIElement.IsMouseOver">
+                                            <Condition.Value>
+                                                <s:Boolean>True</s:Boolean>
+                                            </Condition.Value>
+                                        </Condition>
+                                    </MultiTrigger.Conditions>
+                                    <Setter Property="TextElement.Foreground" TargetName="ContentPresenter">
+                                        <Setter.Value>
+                                            <DynamicResource ResourceKey="CheckBoxForegroundUncheckedPointerOver" />
+                                        </Setter.Value>
+                                    </Setter>
+                                    <Setter Property="Panel.Background" TargetName="RootGrid">
+                                        <Setter.Value>
+                                            <DynamicResource ResourceKey="CheckBoxBackgroundUncheckedPointerOver" />
+                                        </Setter.Value>
+                                    </Setter>
+                                    <Setter Property="Border.BorderBrush" TargetName="RootGrid">
+                                        <Setter.Value>
+                                            <DynamicResource ResourceKey="CheckBoxBorderBrushUncheckedPointerOver" />
+                                        </Setter.Value>
+                                    </Setter>
+                                    <Setter Property="Shape.Stroke" TargetName="NormalRectangle">
+                                        <Setter.Value>
+                                            <DynamicResource
+                                                ResourceKey="CheckBoxCheckBackgroundStrokeUncheckedPointerOver" />
+                                        </Setter.Value>
+                                    </Setter>
+                                    <Setter Property="Shape.Fill" TargetName="NormalRectangle">
+                                        <Setter.Value>
+                                            <DynamicResource
+                                                ResourceKey="CheckBoxCheckBackgroundFillUncheckedPointerOver" />
+                                        </Setter.Value>
+                                    </Setter>
+                                    <Setter Property="TextElement.Foreground" TargetName="CheckGlyph">
+                                        <Setter.Value>
+                                            <DynamicResource
+                                                ResourceKey="CheckBoxCheckGlyphForegroundUncheckedPointerOver" />
+                                        </Setter.Value>
+                                    </Setter>
+                                </MultiTrigger>
+                                <MultiTrigger>
+                                    <MultiTrigger.Conditions>
+                                        <Condition Property="ToggleButton.IsChecked">
+                                            <Condition.Value>
+                                                <s:Boolean>False</s:Boolean>
+                                            </Condition.Value>
+                                        </Condition>
+                                        <Condition Property="ButtonBase.IsPressed">
+                                            <Condition.Value>
+                                                <s:Boolean>True</s:Boolean>
+                                            </Condition.Value>
+                                        </Condition>
+                                    </MultiTrigger.Conditions>
+                                    <Setter Property="TextElement.Foreground" TargetName="ContentPresenter">
+                                        <Setter.Value>
+                                            <DynamicResource ResourceKey="CheckBoxForegroundUncheckedPressed" />
+                                        </Setter.Value>
+                                    </Setter>
+                                    <Setter Property="Panel.Background" TargetName="RootGrid">
+                                        <Setter.Value>
+                                            <DynamicResource ResourceKey="CheckBoxBackgroundUncheckedPressed" />
+                                        </Setter.Value>
+                                    </Setter>
+                                    <Setter Property="Border.BorderBrush" TargetName="RootGrid">
+                                        <Setter.Value>
+                                            <DynamicResource ResourceKey="CheckBoxBorderBrushUncheckedPressed" />
+                                        </Setter.Value>
+                                    </Setter>
+                                    <Setter Property="Shape.Stroke" TargetName="NormalRectangle">
+                                        <Setter.Value>
+                                            <DynamicResource
+                                                ResourceKey="CheckBoxCheckBackgroundStrokeUncheckedPressed" />
+                                        </Setter.Value>
+                                    </Setter>
+                                    <Setter Property="Shape.Fill" TargetName="NormalRectangle">
+                                        <Setter.Value>
+                                            <DynamicResource ResourceKey="CheckBoxCheckBackgroundFillUncheckedPressed" />
+                                        </Setter.Value>
+                                    </Setter>
+                                    <Setter Property="TextElement.Foreground" TargetName="CheckGlyph">
+                                        <Setter.Value>
+                                            <DynamicResource ResourceKey="CheckBoxCheckGlyphForegroundUncheckedPressed" />
+                                        </Setter.Value>
+                                    </Setter>
+                                </MultiTrigger>
+                                <MultiTrigger>
+                                    <MultiTrigger.Conditions>
+                                        <Condition Property="ToggleButton.IsChecked">
+                                            <Condition.Value>
+                                                <s:Boolean>False</s:Boolean>
+                                            </Condition.Value>
+                                        </Condition>
+                                        <Condition Property="UIElement.IsEnabled">
+                                            <Condition.Value>
+                                                <s:Boolean>False</s:Boolean>
+                                            </Condition.Value>
+                                        </Condition>
+                                    </MultiTrigger.Conditions>
+                                    <Setter Property="TextElement.Foreground" TargetName="ContentPresenter">
+                                        <Setter.Value>
+                                            <DynamicResource ResourceKey="CheckBoxForegroundUncheckedDisabled" />
+                                        </Setter.Value>
+                                    </Setter>
+                                    <Setter Property="Panel.Background" TargetName="RootGrid">
+                                        <Setter.Value>
+                                            <DynamicResource ResourceKey="CheckBoxBackgroundUncheckedDisabled" />
+                                        </Setter.Value>
+                                    </Setter>
+                                    <Setter Property="Border.BorderBrush" TargetName="RootGrid">
+                                        <Setter.Value>
+                                            <DynamicResource ResourceKey="CheckBoxBorderBrushUncheckedDisabled" />
+                                        </Setter.Value>
+                                    </Setter>
+                                    <Setter Property="Shape.Stroke" TargetName="NormalRectangle">
+                                        <Setter.Value>
+                                            <DynamicResource
+                                                ResourceKey="CheckBoxCheckBackgroundStrokeUncheckedDisabled" />
+                                        </Setter.Value>
+                                    </Setter>
+                                    <Setter Property="Shape.Fill" TargetName="NormalRectangle">
+                                        <Setter.Value>
+                                            <DynamicResource ResourceKey="CheckBoxCheckBackgroundFillUncheckedDisabled" />
+                                        </Setter.Value>
+                                    </Setter>
+                                    <Setter Property="TextElement.Foreground" TargetName="CheckGlyph">
+                                        <Setter.Value>
+                                            <DynamicResource
+                                                ResourceKey="CheckBoxCheckGlyphForegroundUncheckedDisabled" />
+                                        </Setter.Value>
+                                    </Setter>
+                                </MultiTrigger>
+                                <MultiTrigger>
+                                    <MultiTrigger.Conditions>
+                                        <Condition Property="ToggleButton.IsChecked">
+                                            <Condition.Value>
+                                                <s:Boolean>True</s:Boolean>
+                                            </Condition.Value>
+                                        </Condition>
+                                        <Condition Property="UIElement.IsMouseOver">
+                                            <Condition.Value>
+                                                <s:Boolean>False</s:Boolean>
+                                            </Condition.Value>
+                                        </Condition>
+                                        <Condition Property="ButtonBase.IsPressed">
+                                            <Condition.Value>
+                                                <s:Boolean>False</s:Boolean>
+                                            </Condition.Value>
+                                        </Condition>
+                                        <Condition Property="UIElement.IsEnabled">
+                                            <Condition.Value>
+                                                <s:Boolean>True</s:Boolean>
+                                            </Condition.Value>
+                                        </Condition>
+                                    </MultiTrigger.Conditions>
+                                    <Setter Property="TextElement.Foreground" TargetName="ContentPresenter">
+                                        <Setter.Value>
+                                            <DynamicResource ResourceKey="CheckBoxForegroundChecked" />
+                                        </Setter.Value>
+                                    </Setter>
+                                    <Setter Property="Panel.Background" TargetName="RootGrid">
+                                        <Setter.Value>
+                                            <DynamicResource ResourceKey="CheckBoxBackgroundChecked" />
+                                        </Setter.Value>
+                                    </Setter>
+                                    <Setter Property="Border.BorderBrush" TargetName="RootGrid">
+                                        <Setter.Value>
+                                            <DynamicResource ResourceKey="CheckBoxBorderBrushChecked" />
+                                        </Setter.Value>
+                                    </Setter>
+                                    <Setter Property="Shape.Stroke" TargetName="NormalRectangle">
+                                        <Setter.Value>
+                                            <DynamicResource ResourceKey="CheckBoxCheckBackgroundStrokeChecked" />
+                                        </Setter.Value>
+                                    </Setter>
+                                    <Setter Property="Shape.Fill" TargetName="NormalRectangle">
+                                        <Setter.Value>
+                                            <DynamicResource ResourceKey="CheckBoxCheckBackgroundFillChecked" />
+                                        </Setter.Value>
+                                    </Setter>
+                                    <Setter Property="TextElement.Foreground" TargetName="CheckGlyph">
+                                        <Setter.Value>
+                                            <DynamicResource ResourceKey="CheckBoxCheckGlyphForegroundChecked" />
+                                        </Setter.Value>
+                                    </Setter>
+                                    <Setter Property="Shape.StrokeThickness" TargetName="NormalRectangle">
+                                        <Setter.Value>
+                                            <DynamicResource ResourceKey="CheckBoxCheckedStrokeThickness" />
+                                        </Setter.Value>
+                                    </Setter>
+                                    <Setter Property="UIElement.Opacity" TargetName="CheckGlyph">
+                                        <Setter.Value>
+                                            <s:Double>1</s:Double>
+                                        </Setter.Value>
+                                    </Setter>
+                                </MultiTrigger>
+                                <MultiTrigger>
+                                    <MultiTrigger.Conditions>
+                                        <Condition Property="ToggleButton.IsChecked">
+                                            <Condition.Value>
+                                                <s:Boolean>True</s:Boolean>
+                                            </Condition.Value>
+                                        </Condition>
+                                        <Condition Property="UIElement.IsMouseOver">
+                                            <Condition.Value>
+                                                <s:Boolean>True</s:Boolean>
+                                            </Condition.Value>
+                                        </Condition>
+                                    </MultiTrigger.Conditions>
+                                    <Setter Property="TextElement.Foreground" TargetName="ContentPresenter">
+                                        <Setter.Value>
+                                            <DynamicResource ResourceKey="CheckBoxForegroundCheckedPointerOver" />
+                                        </Setter.Value>
+                                    </Setter>
+                                    <Setter Property="Panel.Background" TargetName="RootGrid">
+                                        <Setter.Value>
+                                            <DynamicResource ResourceKey="CheckBoxBackgroundCheckedPointerOver" />
+                                        </Setter.Value>
+                                    </Setter>
+                                    <Setter Property="Border.BorderBrush" TargetName="RootGrid">
+                                        <Setter.Value>
+                                            <DynamicResource ResourceKey="CheckBoxBorderBrushCheckedPointerOver" />
+                                        </Setter.Value>
+                                    </Setter>
+                                    <Setter Property="Shape.Stroke" TargetName="NormalRectangle">
+                                        <Setter.Value>
+                                            <DynamicResource
+                                                ResourceKey="CheckBoxCheckBackgroundStrokeCheckedPointerOver" />
+                                        </Setter.Value>
+                                    </Setter>
+                                    <Setter Property="Shape.Fill" TargetName="NormalRectangle">
+                                        <Setter.Value>
+                                            <DynamicResource
+                                                ResourceKey="CheckBoxCheckBackgroundFillCheckedPointerOver" />
+                                        </Setter.Value>
+                                    </Setter>
+                                    <Setter Property="TextElement.Foreground" TargetName="CheckGlyph">
+                                        <Setter.Value>
+                                            <DynamicResource
+                                                ResourceKey="CheckBoxCheckGlyphForegroundCheckedPointerOver" />
+                                        </Setter.Value>
+                                    </Setter>
+                                    <Setter Property="UIElement.Opacity" TargetName="CheckGlyph">
+                                        <Setter.Value>
+                                            <s:Double>1</s:Double>
+                                        </Setter.Value>
+                                    </Setter>
+                                </MultiTrigger>
+                                <MultiTrigger>
+                                    <MultiTrigger.Conditions>
+                                        <Condition Property="ToggleButton.IsChecked">
+                                            <Condition.Value>
+                                                <s:Boolean>True</s:Boolean>
+                                            </Condition.Value>
+                                        </Condition>
+                                        <Condition Property="ButtonBase.IsPressed">
+                                            <Condition.Value>
+                                                <s:Boolean>True</s:Boolean>
+                                            </Condition.Value>
+                                        </Condition>
+                                    </MultiTrigger.Conditions>
+                                    <Setter Property="TextElement.Foreground" TargetName="ContentPresenter">
+                                        <Setter.Value>
+                                            <DynamicResource ResourceKey="CheckBoxForegroundCheckedPressed" />
+                                        </Setter.Value>
+                                    </Setter>
+                                    <Setter Property="Panel.Background" TargetName="RootGrid">
+                                        <Setter.Value>
+                                            <DynamicResource ResourceKey="CheckBoxBackgroundCheckedPressed" />
+                                        </Setter.Value>
+                                    </Setter>
+                                    <Setter Property="Border.BorderBrush" TargetName="RootGrid">
+                                        <Setter.Value>
+                                            <DynamicResource ResourceKey="CheckBoxBorderBrushCheckedPressed" />
+                                        </Setter.Value>
+                                    </Setter>
+                                    <Setter Property="Shape.Stroke" TargetName="NormalRectangle">
+                                        <Setter.Value>
+                                            <DynamicResource ResourceKey="CheckBoxCheckBackgroundStrokeCheckedPressed" />
+                                        </Setter.Value>
+                                    </Setter>
+                                    <Setter Property="Shape.Fill" TargetName="NormalRectangle">
+                                        <Setter.Value>
+                                            <DynamicResource ResourceKey="CheckBoxCheckBackgroundFillCheckedPressed" />
+                                        </Setter.Value>
+                                    </Setter>
+                                    <Setter Property="TextElement.Foreground" TargetName="CheckGlyph">
+                                        <Setter.Value>
+                                            <DynamicResource ResourceKey="CheckBoxCheckGlyphForegroundCheckedPressed" />
+                                        </Setter.Value>
+                                    </Setter>
+                                    <Setter Property="UIElement.Opacity" TargetName="CheckGlyph">
+                                        <Setter.Value>
+                                            <s:Double>1</s:Double>
+                                        </Setter.Value>
+                                    </Setter>
+                                </MultiTrigger>
+                                <MultiTrigger>
+                                    <MultiTrigger.Conditions>
+                                        <Condition Property="ToggleButton.IsChecked">
+                                            <Condition.Value>
+                                                <s:Boolean>True</s:Boolean>
+                                            </Condition.Value>
+                                        </Condition>
+                                        <Condition Property="UIElement.IsEnabled">
+                                            <Condition.Value>
+                                                <s:Boolean>False</s:Boolean>
+                                            </Condition.Value>
+                                        </Condition>
+                                    </MultiTrigger.Conditions>
+                                    <Setter Property="TextElement.Foreground" TargetName="ContentPresenter">
+                                        <Setter.Value>
+                                            <DynamicResource ResourceKey="CheckBoxForegroundCheckedDisabled" />
+                                        </Setter.Value>
+                                    </Setter>
+                                    <Setter Property="Panel.Background" TargetName="RootGrid">
+                                        <Setter.Value>
+                                            <DynamicResource ResourceKey="CheckBoxBackgroundCheckedDisabled" />
+                                        </Setter.Value>
+                                    </Setter>
+                                    <Setter Property="Border.BorderBrush" TargetName="RootGrid">
+                                        <Setter.Value>
+                                            <DynamicResource ResourceKey="CheckBoxBorderBrushCheckedDisabled" />
+                                        </Setter.Value>
+                                    </Setter>
+                                    <Setter Property="Shape.Stroke" TargetName="NormalRectangle">
+                                        <Setter.Value>
+                                            <DynamicResource ResourceKey="CheckBoxCheckBackgroundStrokeCheckedDisabled" />
+                                        </Setter.Value>
+                                    </Setter>
+                                    <Setter Property="Shape.Fill" TargetName="NormalRectangle">
+                                        <Setter.Value>
+                                            <DynamicResource ResourceKey="CheckBoxCheckBackgroundFillCheckedDisabled" />
+                                        </Setter.Value>
+                                    </Setter>
+                                    <Setter Property="TextElement.Foreground" TargetName="CheckGlyph">
+                                        <Setter.Value>
+                                            <DynamicResource ResourceKey="CheckBoxCheckGlyphForegroundCheckedDisabled" />
+                                        </Setter.Value>
+                                    </Setter>
+                                    <Setter Property="UIElement.Opacity" TargetName="CheckGlyph">
+                                        <Setter.Value>
+                                            <s:Double>1</s:Double>
+                                        </Setter.Value>
+                                    </Setter>
+                                </MultiTrigger>
+                                <MultiTrigger>
+                                    <MultiTrigger.Conditions>
+                                        <Condition Property="ToggleButton.IsChecked" Value="{x:Null}" />
+                                        <Condition Property="UIElement.IsMouseOver">
+                                            <Condition.Value>
+                                                <s:Boolean>False</s:Boolean>
+                                            </Condition.Value>
+                                        </Condition>
+                                        <Condition Property="ButtonBase.IsPressed">
+                                            <Condition.Value>
+                                                <s:Boolean>False</s:Boolean>
+                                            </Condition.Value>
+                                        </Condition>
+                                        <Condition Property="UIElement.IsEnabled">
+                                            <Condition.Value>
+                                                <s:Boolean>True</s:Boolean>
+                                            </Condition.Value>
+                                        </Condition>
+                                    </MultiTrigger.Conditions>
+                                    <Setter Property="TextElement.Foreground" TargetName="ContentPresenter">
+                                        <Setter.Value>
+                                            <DynamicResource ResourceKey="CheckBoxForegroundIndeterminate" />
+                                        </Setter.Value>
+                                    </Setter>
+                                    <Setter Property="Panel.Background" TargetName="RootGrid">
+                                        <Setter.Value>
+                                            <DynamicResource ResourceKey="CheckBoxBackgroundIndeterminate" />
+                                        </Setter.Value>
+                                    </Setter>
+                                    <Setter Property="Border.BorderBrush" TargetName="RootGrid">
+                                        <Setter.Value>
+                                            <DynamicResource ResourceKey="CheckBoxBorderBrushIndeterminate" />
+                                        </Setter.Value>
+                                    </Setter>
+                                    <Setter Property="Shape.Stroke" TargetName="NormalRectangle">
+                                        <Setter.Value>
+                                            <DynamicResource ResourceKey="CheckBoxCheckBackgroundStrokeIndeterminate" />
+                                        </Setter.Value>
+                                    </Setter>
+                                    <Setter Property="Shape.Fill" TargetName="NormalRectangle">
+                                        <Setter.Value>
+                                            <DynamicResource ResourceKey="CheckBoxCheckBackgroundFillIndeterminate" />
+                                        </Setter.Value>
+                                    </Setter>
+                                    <Setter Property="TextElement.Foreground" TargetName="CheckGlyph">
+                                        <Setter.Value>
+                                            <DynamicResource ResourceKey="CheckBoxCheckGlyphForegroundIndeterminate" />
+                                        </Setter.Value>
+                                    </Setter>
+                                    <Setter Property="ui:FontIcon.Glyph" TargetName="CheckGlyph">
+                                        <Setter.Value></Setter.Value>
+                                    </Setter>
+                                    <Setter Property="UIElement.Opacity" TargetName="CheckGlyph">
+                                        <Setter.Value>
+                                            <s:Double>1</s:Double>
+                                        </Setter.Value>
+                                    </Setter>
+                                </MultiTrigger>
+                                <MultiTrigger>
+                                    <MultiTrigger.Conditions>
+                                        <Condition Property="ToggleButton.IsChecked" Value="{x:Null}" />
+                                        <Condition Property="UIElement.IsMouseOver">
+                                            <Condition.Value>
+                                                <s:Boolean>True</s:Boolean>
+                                            </Condition.Value>
+                                        </Condition>
+                                    </MultiTrigger.Conditions>
+                                    <Setter Property="TextElement.Foreground" TargetName="ContentPresenter">
+                                        <Setter.Value>
+                                            <DynamicResource ResourceKey="CheckBoxForegroundIndeterminatePointerOver" />
+                                        </Setter.Value>
+                                    </Setter>
+                                    <Setter Property="Panel.Background" TargetName="RootGrid">
+                                        <Setter.Value>
+                                            <DynamicResource ResourceKey="CheckBoxBackgroundIndeterminatePointerOver" />
+                                        </Setter.Value>
+                                    </Setter>
+                                    <Setter Property="Border.BorderBrush" TargetName="RootGrid">
+                                        <Setter.Value>
+                                            <DynamicResource ResourceKey="CheckBoxBorderBrushIndeterminatePointerOver" />
+                                        </Setter.Value>
+                                    </Setter>
+                                    <Setter Property="Shape.Stroke" TargetName="NormalRectangle">
+                                        <Setter.Value>
+                                            <DynamicResource
+                                                ResourceKey="CheckBoxCheckBackgroundStrokeIndeterminatePointerOver" />
+                                        </Setter.Value>
+                                    </Setter>
+                                    <Setter Property="Shape.Fill" TargetName="NormalRectangle">
+                                        <Setter.Value>
+                                            <DynamicResource
+                                                ResourceKey="CheckBoxCheckBackgroundFillIndeterminatePointerOver" />
+                                        </Setter.Value>
+                                    </Setter>
+                                    <Setter Property="TextElement.Foreground" TargetName="CheckGlyph">
+                                        <Setter.Value>
+                                            <DynamicResource
+                                                ResourceKey="CheckBoxCheckGlyphForegroundIndeterminatePointerOver" />
+                                        </Setter.Value>
+                                    </Setter>
+                                    <Setter Property="ui:FontIcon.Glyph" TargetName="CheckGlyph">
+                                        <Setter.Value></Setter.Value>
+                                    </Setter>
+                                    <Setter Property="UIElement.Opacity" TargetName="CheckGlyph">
+                                        <Setter.Value>
+                                            <s:Double>1</s:Double>
+                                        </Setter.Value>
+                                    </Setter>
+                                </MultiTrigger>
+                                <MultiTrigger>
+                                    <MultiTrigger.Conditions>
+                                        <Condition Property="ToggleButton.IsChecked" Value="{x:Null}" />
+                                        <Condition Property="ButtonBase.IsPressed">
+                                            <Condition.Value>
+                                                <s:Boolean>True</s:Boolean>
+                                            </Condition.Value>
+                                        </Condition>
+                                    </MultiTrigger.Conditions>
+                                    <Setter Property="TextElement.Foreground" TargetName="ContentPresenter">
+                                        <Setter.Value>
+                                            <DynamicResource ResourceKey="CheckBoxForegroundIndeterminatePressed" />
+                                        </Setter.Value>
+                                    </Setter>
+                                    <Setter Property="Panel.Background" TargetName="RootGrid">
+                                        <Setter.Value>
+                                            <DynamicResource ResourceKey="CheckBoxBackgroundIndeterminatePressed" />
+                                        </Setter.Value>
+                                    </Setter>
+                                    <Setter Property="Border.BorderBrush" TargetName="RootGrid">
+                                        <Setter.Value>
+                                            <DynamicResource ResourceKey="CheckBoxBorderBrushIndeterminatePressed" />
+                                        </Setter.Value>
+                                    </Setter>
+                                    <Setter Property="Shape.Stroke" TargetName="NormalRectangle">
+                                        <Setter.Value>
+                                            <DynamicResource
+                                                ResourceKey="CheckBoxCheckBackgroundStrokeIndeterminatePressed" />
+                                        </Setter.Value>
+                                    </Setter>
+                                    <Setter Property="Shape.Fill" TargetName="NormalRectangle">
+                                        <Setter.Value>
+                                            <DynamicResource
+                                                ResourceKey="CheckBoxCheckBackgroundFillIndeterminatePressed" />
+                                        </Setter.Value>
+                                    </Setter>
+                                    <Setter Property="TextElement.Foreground" TargetName="CheckGlyph">
+                                        <Setter.Value>
+                                            <DynamicResource
+                                                ResourceKey="CheckBoxCheckGlyphForegroundIndeterminatePressed" />
+                                        </Setter.Value>
+                                    </Setter>
+                                    <Setter Property="ui:FontIcon.Glyph" TargetName="CheckGlyph">
+                                        <Setter.Value></Setter.Value>
+                                    </Setter>
+                                    <Setter Property="UIElement.Opacity" TargetName="CheckGlyph">
+                                        <Setter.Value>
+                                            <s:Double>1</s:Double>
+                                        </Setter.Value>
+                                    </Setter>
+                                </MultiTrigger>
+                                <MultiTrigger>
+                                    <MultiTrigger.Conditions>
+                                        <Condition Property="ToggleButton.IsChecked" Value="{x:Null}" />
+                                        <Condition Property="UIElement.IsEnabled">
+                                            <Condition.Value>
+                                                <s:Boolean>False</s:Boolean>
+                                            </Condition.Value>
+                                        </Condition>
+                                    </MultiTrigger.Conditions>
+                                    <Setter Property="TextElement.Foreground" TargetName="ContentPresenter">
+                                        <Setter.Value>
+                                            <DynamicResource ResourceKey="CheckBoxForegroundIndeterminateDisabled" />
+                                        </Setter.Value>
+                                    </Setter>
+                                    <Setter Property="Panel.Background" TargetName="RootGrid">
+                                        <Setter.Value>
+                                            <DynamicResource ResourceKey="CheckBoxBackgroundIndeterminateDisabled" />
+                                        </Setter.Value>
+                                    </Setter>
+                                    <Setter Property="Border.BorderBrush" TargetName="RootGrid">
+                                        <Setter.Value>
+                                            <DynamicResource ResourceKey="CheckBoxBorderBrushIndeterminateDisabled" />
+                                        </Setter.Value>
+                                    </Setter>
+                                    <Setter Property="Shape.Stroke" TargetName="NormalRectangle">
+                                        <Setter.Value>
+                                            <DynamicResource
+                                                ResourceKey="CheckBoxCheckBackgroundStrokeIndeterminateDisabled" />
+                                        </Setter.Value>
+                                    </Setter>
+                                    <Setter Property="Shape.Fill" TargetName="NormalRectangle">
+                                        <Setter.Value>
+                                            <DynamicResource
+                                                ResourceKey="CheckBoxCheckBackgroundFillIndeterminateDisabled" />
+                                        </Setter.Value>
+                                    </Setter>
+                                    <Setter Property="TextElement.Foreground" TargetName="CheckGlyph">
+                                        <Setter.Value>
+                                            <DynamicResource
+                                                ResourceKey="CheckBoxCheckGlyphForegroundIndeterminateDisabled" />
+                                        </Setter.Value>
+                                    </Setter>
+                                    <Setter Property="ui:FontIcon.Glyph" TargetName="CheckGlyph">
+                                        <Setter.Value></Setter.Value>
+                                    </Setter>
+                                    <Setter Property="UIElement.Opacity" TargetName="CheckGlyph">
+                                        <Setter.Value>
+                                            <s:Double>1</s:Double>
+                                        </Setter.Value>
+                                    </Setter>
+                                </MultiTrigger>
+                            </ControlTemplate.Triggers>
+                        </ControlTemplate>
+                    </Setter.Value>
+                </Setter>
+            </Style>
+        </Style.BasedOn>
+        <Style.Resources>
+            <ResourceDictionary />
+        </Style.Resources>
+    </Style>
+</av:ResourceDictionary>

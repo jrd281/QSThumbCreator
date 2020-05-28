@@ -1,0 +1,45 @@
+﻿<UserControl x:Class="QSThumbCreator.Views.Completion.Completion"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:local="clr-namespace:QSThumbCreator.Views.Completion"
+             d:DataContext="{d:DesignInstance local:CompletionViewModel}"
+             mc:Ignorable="d"
+             d:DesignHeight="450" d:DesignWidth="800">
+    <Grid Margin="5">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto" />
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+
+        <Label Grid.Row="0" Grid.Column="0" Content="Completion Report" FontSize="24" />
+
+        <Label Grid.Row="1" Grid.Column="0" Content="Streams Accessed:" Margin="5"
+               VerticalAlignment="Center" />
+        <Label Grid.Row="1" Grid.Column="1" Content="{Binding Path=StreamsCount}" Margin="5"
+               VerticalAlignment="Center" />
+
+        <Label Grid.Row="2" Grid.Column="0" Content="Apps Accessed:" Margin="5"
+               VerticalAlignment="Center" />
+        <Label Grid.Row="2" Grid.Column="1" Content="{Binding Path=AppsCount}" Margin="5"
+               VerticalAlignment="Center" />
+
+        <Label Grid.Row="3" Grid.Column="0" Content="Sheets Accessed:" Margin="5"
+               VerticalAlignment="Center" />
+        <Label Grid.Row="3" Grid.Column="1" Content="{Binding Path=SheetsCount}" Margin="5"
+               VerticalAlignment="Center" />
+
+        <Label Grid.Row="4" Grid.Column="0" Content="Time Elapsed:" Margin="5"
+               VerticalAlignment="Center" />
+        <Label Grid.Row="4" Grid.Column="1" Content="{Binding Path=TimeElapsed}" Margin="5"
+               VerticalAlignment="Center" />
+    </Grid>
+</UserControl>

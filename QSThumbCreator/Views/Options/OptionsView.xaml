@@ -1,0 +1,62 @@
+﻿<UserControl x:Class="QSThumbCreator.Views.Options.OptionsView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:local="clr-namespace:QSThumbCreator.Views.Options"
+             d:DataContext="{d:DesignInstance local:OptionsViewModel}"
+             mc:Ignorable="d" Background="White"
+             d:DesignHeight="450" d:DesignWidth="800">
+    <UserControl.Resources>
+    </UserControl.Resources>
+    <Grid Margin="5">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto" />
+            <ColumnDefinition Width="Auto" MinWidth="200" />
+            <ColumnDefinition Width="Auto" MinWidth="300" />
+            <ColumnDefinition Width="Auto" />
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+
+        <Label Grid.Row="0" Grid.Column="0" Margin="5" FontSize="20"
+               VerticalContentAlignment="Center" Content="I want to:" />
+        <ComboBox Grid.Row="0" Grid.Column="1" Grid.ColumnSpan="3" Margin="5"
+                  SelectedItem="{Binding Path=SelectedTaskOption}" MinWidth="300"
+                  ItemsSource="{Binding Path=TaskOptionsCollection}"
+                  DisplayMemberPath="DisplayText" />
+
+        <Label Grid.Row="1" Grid.Column="1" Grid.RowSpan="2" Margin="5"
+               Content="Thumb Output Dir:" />
+        <TextBox Grid.Row="1" Grid.Column="2" Margin="5"
+                 Text="{Binding Path=ThumbOutputDirectory,Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
+        <Button Grid.Row="1" Grid.Column="3" Click="HandleBrowseForDirectoryClick">Browse</Button>
+
+        <Grid Grid.Row="4" Grid.Column="0" Grid.ColumnSpan="5">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto" />
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="Auto" />
+            </Grid.ColumnDefinitions>
+
+            <Button Grid.Row="0" Grid.Column="0" Margin="5"
+                    Click="HandlePrevClick">
+                Previous
+            </Button>
+
+            <Button Grid.Row="0" Grid.Column="2" Margin="5"
+                    Click="HandleNextClick" IsEnabled="{Binding NextEnabled}">
+                Next
+            </Button>
+        </Grid>
+    </Grid>
+</UserControl>

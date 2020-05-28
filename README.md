@@ -1,6 +1,10 @@
 # QSThumbCreator
 A WPF/C# app used to automate thumbnail creation for QlikSense
 
+## Prerequisites
+- The application as of now is only compatible with **Chrome 83**
+- A valid QliKSense login will be required to interface with the QRS REST API
+
 ## How To Use
 
 1. [Download release 1.1.0.0](https://qsthumbcreator.s3.amazonaws.com/releases/QSThumbCreator+1.1.0.0.zip)
@@ -20,11 +24,11 @@ A WPF/C# app used to automate thumbnail creation for QlikSense
 
 ## Incorporated Libraries of Note
 
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[AutoItX.Dotnet](https://www.nuget.org/packages/AutoItX.Dotnet/)
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[ModernWpf](https://github.com/Kinnara/ModernWpf)
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[qlik_rest_sdk](https://github.com/kolsrud/qlik_rest_sdk)
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Selenium WebDriver](https://www.selenium.dev/)
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Selenium WebDriver ChromeDriver](https://github.com/jsakamoto/nupkg-selenium-webdriver-chromedriver/)
+- &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[AutoItX.Dotnet](https://www.nuget.org/packages/AutoItX.Dotnet/)
+- &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[ModernWpf](https://github.com/Kinnara/ModernWpf)
+- &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[qlik_rest_sdk](https://github.com/kolsrud/qlik_rest_sdk)
+- &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Selenium WebDriver](https://www.selenium.dev/)
+- &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Selenium WebDriver ChromeDriver](https://github.com/jsakamoto/nupkg-selenium-webdriver-chromedriver/)
 
 ## License
 

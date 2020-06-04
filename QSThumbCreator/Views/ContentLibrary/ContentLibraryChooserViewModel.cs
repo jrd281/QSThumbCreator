@@ -13,11 +13,13 @@ namespace QSThumbCreator.Views.ContentLibrary
 {
     public class ContentLibraryChooserViewModel : BindableBase
     {
+        // https://github.com/serilog/serilog/issues/1294
+        private static ILogger _log => Log.ForContext<ContentLibraryChooserViewModel>();
+
         private readonly QlikEngineService _qlikEngineService;
         private readonly QlikThumbModel _qlikThumbModel;
         private readonly IEventAggregator _eventAggregator;
         private QlikContentLibrary _selectedQlikContentLibrary;
-        private readonly ILogger _log = Log.ForContext<ContentLibraryChooserViewModel>();
         private bool _nextEnabled;
 
         public ContentLibraryChooserViewModel(QlikEngineService qlikEngineService,

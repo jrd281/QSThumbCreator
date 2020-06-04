@@ -15,7 +15,8 @@ namespace QSThumbCreator.Services.QlikEngine
 {
     public class QlikEngineService
     {
-        private readonly ILogger _log = Log.ForContext<QlikEngineService>();
+        // https://github.com/serilog/serilog/issues/1294
+        private static ILogger _log => Log.ForContext<QlikEngineService>();
         private readonly QlikAuthModel _qlikThumbAuthModel;
         private RestClient _restClient;
 

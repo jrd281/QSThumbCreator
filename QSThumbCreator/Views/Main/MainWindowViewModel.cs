@@ -12,7 +12,8 @@ namespace QSThumbCreator.Views.Main
 {
     public class MainWindowViewModel : BindableBase
     {
-        private readonly ILogger _log = Log.ForContext<MainWindowViewModel>();
+        // https://github.com/serilog/serilog/issues/1294
+        private static ILogger _log => Log.ForContext<MainWindowViewModel>();
         private readonly QlikThumbModel _qlikThumbModel;
         private readonly IRegionManager _regionManager;
 

@@ -14,13 +14,14 @@ namespace QSThumbCreator.Views.StreamsAndApps
 {
     public class StreamsAndAppsViewModel : BindableBase
     {
+        // https://github.com/serilog/serilog/issues/1294
+        private static ILogger _log => Log.ForContext<StreamsAndAppsViewModel>();
         private readonly IEventAggregator _eventAggregator;
         private readonly QlikEngineService _qlikEngineService;
         private readonly QlikThumbModel _qlikThumbModel;
         private bool _nextEnabled;
         private bool _showProgressRing;
         public ObservableCollection<QlikStreamApp> QlikStreamApps;
-        private readonly ILogger _log = Log.ForContext<StreamsAndAppsViewModel>();
 
         public StreamsAndAppsViewModel(QlikEngineService qlikEngineService,
             QlikThumbModel qlikThumbModel,

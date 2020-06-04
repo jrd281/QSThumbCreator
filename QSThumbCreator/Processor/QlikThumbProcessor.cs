@@ -20,7 +20,7 @@ namespace QSThumbCreator.Processor
 {
     public class QlikThumbProcessor
     {
-        private readonly ILogger _log = Log.ForContext<QlikThumbProcessor>();
+        private static ILogger _log => Log.ForContext<QlikThumbProcessor>();
 
         private readonly IEventAggregator _eventAggregator;
         private readonly QlikAuthModel _qlikAuthModel;

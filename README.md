@@ -7,7 +7,7 @@ A WPF/C# app used to automate thumbnail creation for QlikSense
 
 ## How To Use
 
-1. [Download release 1.1.0.0](https://qsthumbcreator.s3.amazonaws.com/releases/QSThumbCreator+1.1.0.0.zip)
+1. [Download release 1.2.0.0](https://qsthumbcreator.s3.amazonaws.com/releases/QSThumbCreator+1.2.0.0.zip)
 2. Unzip the file
 3. Run the .exe file named QSThumbCreator.exe
 4. Follow the prompts.

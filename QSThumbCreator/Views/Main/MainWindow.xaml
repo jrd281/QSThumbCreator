@@ -4,9 +4,10 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:regions="http://prismlibrary.com/"
-        mc:Ignorable="d"
+        d:DataContext="{d:DesignInstance MainWindowViewModel}"
+        mc:Ignorable="d" Title="{Binding Path=Title,Mode=OneWay,UpdateSourceTrigger=PropertyChanged}"
         Loaded="OnMainWindowLoaded"
-        Title="" Height="450" Width="800">
+        Height="450" Width="800">
     <DockPanel>
         <Menu DockPanel.Dock="Top" Background="#f2f2f2" Height="27">
             <Menu.ItemsPanel>
@@ -15,6 +16,7 @@
                 </ItemsPanelTemplate>
             </Menu.ItemsPanel>
             <MenuItem Header="File" HorizontalAlignment="Left" Height="25">
+                <MenuItem Header="Go to Github Repository" Click="HandleGoToGithubClick" />
                 <MenuItem Header="Open Log Folder" Click="HandleOpenLogFolderClick" />
                 <MenuItem Header="Exit" Click="HandleExitClick" />
             </MenuItem>

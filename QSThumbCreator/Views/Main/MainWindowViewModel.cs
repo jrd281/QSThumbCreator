@@ -1,4 +1,5 @@
 ﻿using System.Diagnostics;
+using System.Reflection;
 using Prism.Events;
 using Prism.Mvvm;
 using Prism.Regions;
@@ -16,11 +17,13 @@ namespace QSThumbCreator.Views.Main
         private static ILogger _log => Log.ForContext<MainWindowViewModel>();
         private readonly QlikThumbModel _qlikThumbModel;
         private readonly IRegionManager _regionManager;
+        private string _title;
 
         public MainWindowViewModel(QlikThumbModel qlikThumbModel,
             IEventAggregator eventAggregator,
             IRegionManager regionManager)
         {
+            Title = "QS ThumbCreator - " + Assembly.GetExecutingAssembly().GetName().Version.ToString();
             _qlikThumbModel = qlikThumbModel;
             _regionManager = regionManager;
             eventAggregator.GetEvent<NavEvent>().Subscribe(HandleNavEvent);
@@ -33,6 +36,16 @@ namespace QSThumbCreator.Views.Main
 
             var mainRegion = _regionManager.Regions["MainRegion"];
             mainRegion.RequestNavigate("Completion");
+        }
+
+        public void HandleGoToGithub()
+        {
+            var psi = new ProcessStartInfo
+            {
+                FileName = "https://github.com/jrd281/QSThumbCreator",
+                UseShellExecute = true
+            };
+            Process.Start(psi);
         }
 
         public void HandleShowLogs()
@@ -49,6 +62,15 @@ namespace QSThumbCreator.Views.Main
             };
 
             explorerWindowProcess.Start();
+        }
+
+        public string Title
+        {
+            get => _title;
+            set
+            {
+                SetProperty(ref _title, value);
+            }
         }
 
         private void HandleNavEvent(string navEventType)

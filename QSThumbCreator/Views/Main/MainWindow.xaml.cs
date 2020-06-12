@@ -25,6 +25,8 @@ namespace QSThumbCreator.Views.Main
             _container = container;
             _regionManager = regionManager;
             _mainWindowViewModel = mainWindowViewModel;
+            this.DataContext = _mainWindowViewModel;
+
             InitializeComponent();
         }
 
@@ -49,6 +51,11 @@ namespace QSThumbCreator.Views.Main
 
             var completion = _container.Resolve<Completion.Completion>();
             mainRegion.Add(completion, "Completion");
+        }
+
+        private void HandleGoToGithubClick(object sender, RoutedEventArgs e)
+        {
+            _mainWindowViewModel.HandleGoToGithub();
         }
 
         private void HandleOpenLogFolderClick(object sender, RoutedEventArgs e)

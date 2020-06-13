@@ -40,6 +40,7 @@ namespace QSThumbCreator.Views.Main
 
         public void HandleGoToGithub()
         {
+            // https://stackoverflow.com/questions/502199/how-to-open-a-web-page-from-my-application
             var psi = new ProcessStartInfo
             {
                 FileName = "https://github.com/jrd281/QSThumbCreator",

@@ -15,13 +15,17 @@ A WPF/C# app used to automate thumbnail creation for QlikSense
 5. Select the apps you want to create thumbnails for
      ![Screenshot 1](Images/SShot_2.png?raw=true "App Selector")
 6. Choose whether you want to create images only, or push them to a content directory
-     ![Screenshot 1](Images/SShot_3.png?raw=true "Images Only or Push to CD")
+
+    <img src="./Images/SShot_3.png" width="400">
 7. If you chose to push to a content directory, select the directory here
-     ![Screenshot 1](Images/SShot_4.png?raw=true "Content Directory Chooser")
+
+    <img src="./Images/SShot_4.png" width="400">
 8. Check the list of apps and hit the Go button
-     ![Screenshot 1](Images/SShot_5.png?raw=true "Statement of Work")
+
+    <img src="./Images/SShot_5.png" width="400">
 9. When the application is complete, a report will be generated
-    <img src="Images/SShot_6.png" width="100">
+
+    <img src="./Images/SShot_6.png" width="400">
     
  
 ## To-Do

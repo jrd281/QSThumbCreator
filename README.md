@@ -7,21 +7,22 @@ A WPF/C# app used to automate thumbnail creation for QlikSense
 
 ## How To Use
 
-1. [Download release 1.4.0.0](https://qsthumbcreator.s3.amazonaws.com/releases/QSThumbCreator+1.2.0.0.zip)
+1. [Download release 1.4.0.0](https://qsthumbcreator.s3.amazonaws.com/releases/QSThumbCreator+1.4.0.0.zip)
 2. Unzip the file
 3. Run the .exe file named QSThumbCreator.exe
 4. Input your credentials.
      ![Screenshot 1](Images/SShot_1.png?raw=true "Initial View")
 5. Select the apps you want to create thumbnails for
-     ![Screenshot 1](Images/SShot_2.png?raw=true "Initial View")
+     ![Screenshot 1](Images/SShot_2.png?raw=true "App Selector")
 6. Choose whether you want to create images only, or push them to a content directory
-     ![Screenshot 1](Images/SShot_3.png?raw=true "Initial View")
+     ![Screenshot 1](Images/SShot_3.png?raw=true "Images Only or Push to CD")
 7. If you chose to push to a content directory, select the directory here
-     ![Screenshot 1](Images/SShot_4.png?raw=true "Initial View")
+     ![Screenshot 1](Images/SShot_4.png?raw=true "Content Directory Chooser")
 8. Check the list of apps and hit the Go button
-     ![Screenshot 1](Images/SShot_5.png?raw=true "Initial View")
+     ![Screenshot 1](Images/SShot_5.png?raw=true "Statement of Work")
 9. When the application is complete, a report will be generated
-     ![Screenshot 1](Images/SShot_6.png?raw=true "Initial View")
+    <img src="Images/SShot_6.png" width="200">
+    
  
 ## To-Do
  -  [ ] Set the thumbnail for an app derived from it''s first sheet

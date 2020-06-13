@@ -4,6 +4,7 @@ A WPF/C# app used to automate thumbnail creation for QlikSense
 ## Prerequisites
 - The application as of now is only compatible with **Chrome 83**
 - A valid QliKSense login will be required to interface with the QRS REST API
+- Tested with QlikSense version **April 2020**
 
 ## How To Use
 

@@ -21,7 +21,7 @@ A WPF/C# app used to automate thumbnail creation for QlikSense
 8. Check the list of apps and hit the Go button
      ![Screenshot 1](Images/SShot_5.png?raw=true "Statement of Work")
 9. When the application is complete, a report will be generated
-    <img src="Images/SShot_6.png" width="200">
+    <img src="Images/SShot_6.png" width="100">
     
  
 ## To-Do
